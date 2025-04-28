@@ -60,6 +60,6 @@ project/
 ├── resources/
     ├── csv/
         └── data.csv
-    └── README.md
 ├── pom.xml
+├── README.md
 ```
