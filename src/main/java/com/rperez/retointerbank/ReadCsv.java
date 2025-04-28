@@ -13,14 +13,35 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Ricardo Perez
+ */
 @Component
 public class ReadCsv {
 
-    // Se declaró la variable usando el @Value para traer los valores de mi archivo application.properties
-    // Donde se declaró la ruta
+    /**
+     * Ruta donde se almacenan los archivos CSV a procesar.
+     */
     @Value("${local.path-csv}")
     private String pathCsv;
 
+
+    /**
+     * Lee archivos CSV desde un directorio específico y convierte su contenido en una lista de objetos del tipo especificado.
+     * <p>
+     * Este método:
+     * <ul>
+     *     <li>Busca todos los archivos con extensión <code>.csv</code> en el directorio configurado.</li>
+     *     <li>Lee cada archivo usando <code>CsvParser</code> y convierte cada fila en una instancia de la clase proporcionada.</li>
+     *     <li>Combina todos los resultados en una sola lista.</li>
+     * </ul>
+     *
+     * @param model La clase del modelo al que se deben mapear los datos del CSV.
+     * @param <T> El tipo de objeto que representa cada fila del CSV.
+     * @return Una lista de objetos de tipo <code>T</code> mapeados desde los archivos CSV; si no existen archivos, devuelve una lista vacía.
+     * @throws Exception Si ocurre un error en la lectura o el procesamiento de los archivos CSV.
+     *
+     */
     public <T> List<T> readCsv(Class<T> model) throws Exception {
 
         // 1.- Se instancia el BeanListProcessor de Tipo model

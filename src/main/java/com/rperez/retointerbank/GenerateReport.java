@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author Ricardo Perez
+ */
 @Component
 public class GenerateReport {
 
@@ -19,6 +22,19 @@ public class GenerateReport {
         this.readCsv = readCsv;
     }
 
+    /**
+     * Genera un reporte de transacciones basado en un archivo CSV.
+     * <p>
+     * El reporte incluye:
+     * <ul>
+     *     <li>Balance final de todas las transacciones de tipo crédito.</li>
+     *     <li>La transacción con el monto más alto.</li>
+     *     <li>Conteo de transacciones por tipo: Crédito y Débito.</li>
+     * </ul>
+     * </p>
+     *
+     * @throws Exception Si ocurre un error durante la lectura del archivo CSV.
+     */
     public void generateReport() throws Exception {
         // 1- Lectura de archivos csv y almacenarlos en una lista
         //      del mismo tipo que se pasa como argumento a readCsv en este caso "Transaction"
