@@ -4,7 +4,7 @@ import com.univocity.parsers.common.processor.BeanListProcessor;
 import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileReader;
@@ -18,7 +18,7 @@ import java.util.Objects;
  *
  * @author Ricardo Perez
  */
-@Component
+@Service
 public class ReadCsv {
 
     /**
