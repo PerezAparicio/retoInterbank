@@ -54,6 +54,14 @@ public class ReadCsv {
         settings.setProcessor(processor);
         settings.setLineSeparatorDetectionEnabled(true);
 
+        /*
+            Maneja los posibles errores al procesar los datos del archivo.csv
+            para no detener la lectura del mismo.
+        */
+        settings.setProcessorErrorHandler((error, inputRow, context) -> {
+            System.err.println("Error al procesar fila #" + context.currentRecord() + ": " + error.getMessage());
+        });
+
         File filesCsv = new File(pathCsv);
 
         if (!filesCsv.exists()) {
